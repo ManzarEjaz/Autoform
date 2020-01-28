@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "299431281170",
+    "firebase_url": "https://autoform-71498.firebaseio.com",
+    "project_id": "autoform-71498",
+    "storage_bucket": "autoform-71498.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299431281170:android:0de390902b98c138138ecb",
+        "android_client_info": {
+          "package_name": "com.example.autoform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299431281170-5m70l6m768fl8njqmec8e5ol8bk8j6u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAHctd1KsIMBMJQ4g98KRZNCEZi-PdZlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299431281170-5m70l6m768fl8njqmec8e5ol8bk8j6u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
