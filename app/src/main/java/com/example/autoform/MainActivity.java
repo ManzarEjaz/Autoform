@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -160,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void processTxt(FirebaseVisionText firebaseVisionText) {
         String result = firebaseVisionText.getText().trim();
+        String[] words = result.split("\\s+");
+
+        Log.e("printede string is",words[1]);
         txtView.setText(result);
     }
 
