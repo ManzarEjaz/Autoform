@@ -31,6 +31,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
@@ -44,11 +46,21 @@ public class MainActivity extends AppCompatActivity {
     private Button detectBtn;
     private Button gallery;
     private Button signout;
+    private Button upload;
     private ImageView imageView;
     private TextView txtView;
     private Bitmap bitmap;
     private final int PICK_PHOTO = 1;
     private final int CAMERA_PHOTO = 2;
+    String h;
+    String name = "ty";
+    String name1 = "";
+    String surname = "yu";
+    String surname1 = "";
+    String phone = "iuu";
+    String phone1 = "";
+    member m;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +72,14 @@ public class MainActivity extends AppCompatActivity {
         txtView = findViewById(R.id.txtView);
         gallery = findViewById(R.id.gallery);
         signout = findViewById(R.id.signout);
+        upload = findViewById(R.id.upload);
+        m = new member();
+        reference = FirebaseDatabase.getInstance().getReference().child("member");
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this,login_activity.class));
+                startActivity(new Intent(MainActivity.this, login_activity.class));
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
@@ -86,10 +101,38 @@ public class MainActivity extends AppCompatActivity {
                 detectTxt();
             }
         });
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                h = txtView.getText().toString();
+                Log.e("hjhjhjgygyghghg", h);
+                String[] words = h.split("\\s+");
+                Log.e("name is", words[0]);
+                name1 = "";
+                surname1 = "";
+                phone1 = "";
+                for (int i = 0; i < words[0].length(); i++) {
+                    name1 += words[0].charAt(i);
+                }
+                Log.e("name isssssssssssssss", name1);
+                for (int i = 0; i < words[1].length(); i++) {
+                    surname1 += words[1].charAt(i);
+                }
+                Log.e("surname isssssssssss", surname1);
+                for (int i = 0; i < words[2].length(); i++) {
+                    phone1 += words[2].charAt(i);
+                }
+                Log.e("phone isssssssssss", phone1);;
+                m.setNa(name1);
+                m.setSu(surname1);
+                m.setPh(phone1);
+                reference.push().setValue(m);
+
+                Toast.makeText(getApplicationContext(), "Data inserted", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
-
-
 
 
     public void onPhoto() {
@@ -163,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
         String result = firebaseVisionText.getText().trim();
         String[] words = result.split("\\s+");
 
-        Log.e("printede string is",words[1]);
+
+        Log.e("printede string is", words[1]);
         txtView.setText(result);
     }
 
@@ -171,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
         int width, height;
         height = image.getHeight();
         width = image.getWidth();
-
         Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(bmpGrayscale);
         Paint paint = new Paint();

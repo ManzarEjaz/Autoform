@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="530dp"
+        android:layout_marginTop="500dp"
         android:text="Snap" />
 
     <Button
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="440dp"
         android:text="Detect" />
 
     <ImageView
@@ -40,19 +40,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="380dp"
         android:text="Gallery"
 
         />
+
 
     <Button
         android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="560dp"
 
         android:text="Sign Out" />
 
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="610dp"
+
+        android:text="Upload" />
 
 </RelativeLayout>
