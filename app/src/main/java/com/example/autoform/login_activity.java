@@ -26,8 +26,8 @@ public class login_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity);
         firebaseAuth = FirebaseAuth.getInstance();
-        b = findViewById(R.id.button);
-        ed1 = (EditText)findViewById(R.id.editText);
+        b = findViewById(R.id.button1);
+        ed1 = (EditText)findViewById(R.id.editText1);
         ed2 = (EditText)findViewById(R.id.editText2);
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
